@@ -1,2 +1,10 @@
-# manager-costumers
-Customer manager and their addresses.
+# Manager Costumers
+API to manage customers and their addresses.
+
+Technologies
+- Java 11
+- Spark Framework
+- Jackson
+- Google Guice
+- Flyway
+- Gradle
