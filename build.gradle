@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'br.com.compositebit.douglasgiordano'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+    // https://mvnrepository.com/artifact/com.sparkjava/spark-core
+    compile group: 'com.sparkjava', name: 'spark-core', version: '2.9.3'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+}
