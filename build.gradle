@@ -16,4 +16,17 @@ dependencies {
     compile group: 'com.sparkjava', name: 'spark-core', version: '2.9.3'
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    compile group: 'com.google.inject', name: 'guice', version: '4.2.3'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+    // https://mvnrepository.com/artifact/org.jdbi/jdbi3-bom
+    compile group: 'org.jdbi', name: 'jdbi3-bom', version: '3.17.0', ext: 'pom'
+    // https://mvnrepository.com/artifact/org.jdbi/jdbi3-sqlobject
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
+
+
 }
