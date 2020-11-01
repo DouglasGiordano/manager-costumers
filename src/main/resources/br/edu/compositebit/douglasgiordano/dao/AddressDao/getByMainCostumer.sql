@@ -1,0 +1,1 @@
+SELECT * FROM address where costumer = :costumerId AND main = true LIMIT 1;

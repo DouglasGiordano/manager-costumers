@@ -27,6 +27,11 @@ dependencies {
     compile group: 'org.jdbi', name: 'jdbi3-bom', version: '3.17.0', ext: 'pom'
     // https://mvnrepository.com/artifact/org.jdbi/jdbi3-sqlobject
     compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
-
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.11.3'
+    // https://mvnrepository.com/artifact/org.antlr/stringtemplate
+    compile group: 'org.antlr', name: 'stringtemplate', version: '4.0.2'
+// https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
 
 }

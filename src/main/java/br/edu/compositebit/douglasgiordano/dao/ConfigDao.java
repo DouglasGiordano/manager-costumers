@@ -1,4 +1,4 @@
-package br.edu.compositebit.douglasgiordano.repository;
+package br.edu.compositebit.douglasgiordano.dao;
 
 import lombok.Data;
 import org.jdbi.v3.core.Jdbi;
@@ -13,8 +13,8 @@ public class ConfigDao {
     private Jdbi jdbi;
 
     public ConfigDao(){
-        Jdbi jdbi = Jdbi.create("jdbc:mysql//localhost/costumermanagerdb");
-        jdbi.installPlugin(new SqlObjectPlugin());
+        this.jdbi = Jdbi.create("jdbc:mysql://localhost:3306/costumermanagerdb?useTimezone=true&serverTimezone=UTC", "root", "root");
+        this.jdbi.installPlugin(new SqlObjectPlugin());
     }
 
 }

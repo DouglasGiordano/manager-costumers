@@ -1,0 +1,1 @@
+insert into costumer (name, email, birthDate, cpf, gender) values (:name, :email, :birthDate, :cpf, :gender)
