@@ -4,12 +4,6 @@ import br.edu.compositebit.douglasgiordano.controller.view.AddressView;
 import br.edu.compositebit.douglasgiordano.controller.view.CostumerView;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
-import lombok.experimental.Accessors;
-import org.jdbi.v3.core.mapper.Nested;
-
-import java.beans.ConstructorProperties;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor
 @Data

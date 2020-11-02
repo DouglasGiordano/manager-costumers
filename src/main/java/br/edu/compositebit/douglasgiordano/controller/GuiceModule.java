@@ -11,6 +11,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 
+import java.sql.SQLException;
+
 public class GuiceModule extends AbstractModule {
     @Override
     protected void configure() {
@@ -28,20 +30,20 @@ public class GuiceModule extends AbstractModule {
 
     @Provides
     @Singleton
-    private ConfigDao provideJdbiConfig() {
+    private ConfigDao provideJdbiConfig() throws SQLException {
         return new ConfigDao();
     }
 
     @Provides
     @Singleton
-    private CostumerDao provideCostumerDao() {
+    private CostumerDao provideCostumerDao() throws SQLException {
         CostumerDao repo = this.provideJdbiConfig().getJdbi().open().attach(CostumerDao.class);
         return repo;
     }
 
     @Provides
     @Singleton
-    private AddressDao provideAddressDao() {
+    private AddressDao provideAddressDao() throws SQLException {
         AddressDao repo = this.provideJdbiConfig().getJdbi().open().attach(AddressDao.class);
         return repo;
     }

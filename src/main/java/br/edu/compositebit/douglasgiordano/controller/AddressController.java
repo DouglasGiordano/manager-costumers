@@ -1,10 +1,8 @@
 package br.edu.compositebit.douglasgiordano.controller;
 
-import br.edu.compositebit.douglasgiordano.controller.view.AddressView;
 import br.edu.compositebit.douglasgiordano.controller.view.CostumerView;
+import br.edu.compositebit.douglasgiordano.controller.view.AddressView;
 import br.edu.compositebit.douglasgiordano.model.entities.Address;
-import br.edu.compositebit.douglasgiordano.model.entities.Costumer;
-import br.edu.compositebit.douglasgiordano.dao.filter.CostumerFilter;
 import br.edu.compositebit.douglasgiordano.model.entities.Message;
 import br.edu.compositebit.douglasgiordano.service.AddressService;
 import com.fasterxml.jackson.databind.ObjectMapper;

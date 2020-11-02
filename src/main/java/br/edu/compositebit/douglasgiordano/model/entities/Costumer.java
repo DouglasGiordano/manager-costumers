@@ -1,23 +1,18 @@
 package br.edu.compositebit.douglasgiordano.model.entities;
 
+import br.com.caelum.stella.bean.validation.CPF;
 import br.edu.compositebit.douglasgiordano.controller.view.CostumerView;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.NonNull;
 
-import java.beans.ConstructorProperties;
-import java.sql.Date;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Data
@@ -28,9 +23,12 @@ public class Costumer {
     private int id;
 
     @JsonView(CostumerView.CREATE.class)
+    @NotNull(message = "Name cannot be null")
+    @NonNull
     private String name;
 
     @JsonView(CostumerView.CREATE.class)
+    @Email(message = "Email should be valid!")
     private String email;
 
     @JsonView(CostumerView.CREATE.class)
@@ -38,6 +36,7 @@ public class Costumer {
     private LocalDate birthDate;
 
     @JsonView(CostumerView.CREATE.class)
+    @CPF
     private String cpf;
 
     @JsonView(CostumerView.CREATE.class)

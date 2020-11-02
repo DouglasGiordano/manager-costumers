@@ -1,6 +1,7 @@
 package br.edu.compositebit.douglasgiordano.service;
 
 import br.edu.compositebit.douglasgiordano.model.entities.Address;
+import br.edu.compositebit.douglasgiordano.model.entities.exception.BadEntityException;
 import br.edu.compositebit.douglasgiordano.model.entities.exception.EntityNotFoundException;
 import br.edu.compositebit.douglasgiordano.dao.AddressDao;
 import com.google.inject.Inject;
@@ -53,6 +54,9 @@ public class AddressService extends SuperService<Address> {
     public void updateNewMain(Address entity){
         if(entity.isMain()){
             Address addresMain = this.addressDao.getByMainCostumer(entity.getCostumer());
+            if(addresMain == null){
+                return;
+            }
             addresMain.setMain(false);
             this.addressDao.update(addresMain);
         }
@@ -76,5 +80,12 @@ public class AddressService extends SuperService<Address> {
             throw new EntityNotFoundException();
         }
         return address;
+    }
+
+    public boolean validAddress(Address address) throws BadEntityException {
+        if(address == null){
+            throw new BadEntityException("Empty address.");
+        }
+        return true;
     }
 }

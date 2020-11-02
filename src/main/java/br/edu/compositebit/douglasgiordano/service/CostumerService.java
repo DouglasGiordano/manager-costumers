@@ -1,6 +1,7 @@
 package br.edu.compositebit.douglasgiordano.service;
 import br.edu.compositebit.douglasgiordano.model.entities.Address;
 import br.edu.compositebit.douglasgiordano.model.entities.Costumer;
+import br.edu.compositebit.douglasgiordano.model.entities.exception.BadEntityException;
 import br.edu.compositebit.douglasgiordano.model.entities.exception.EntityNotFoundException;
 import br.edu.compositebit.douglasgiordano.dao.CostumerDao;
 import br.edu.compositebit.douglasgiordano.dao.filter.CostumerFilter;
@@ -22,14 +23,14 @@ public class CostumerService extends SuperService<Costumer> {
     private AddressService addressesService;
 
     @Override
-    public Costumer add(Costumer entity) {
+    public Costumer add(Costumer entity) throws BadEntityException {
+        this.validCostumer(entity);
         log.info("Adding customer "+entity.getName()+".");
         int idCostumer = this.costumerDao.insert(entity);
         entity.setId(idCostumer);
 
         Address address = entity.getMainAddress();
         address.setCostumer(idCostumer);
-
         address = this.addressesService.add(address);
         entity.setMainAddress(address);
         entity.setAddresses(new ArrayList<>());
@@ -59,7 +60,8 @@ public class CostumerService extends SuperService<Costumer> {
     }
 
     @Override
-    public Costumer update(Integer id, Costumer entity) throws EntityNotFoundException, InvocationTargetException, IllegalAccessException {
+    public Costumer update(Integer id, Costumer entity) throws EntityNotFoundException, InvocationTargetException, IllegalAccessException, BadEntityException {
+        this.validCostumer(entity);
         Address address = this.getAddressesService().getByMainCostumer(id);
         entity.getMainAddress().setCostumer(id);
         log.info("Updating address "+address.getId());
@@ -95,5 +97,16 @@ public class CostumerService extends SuperService<Costumer> {
             }
             c.setMainAddress(main);
         }
+    }
+
+    public boolean validCostumer(Costumer costumer) throws BadEntityException {
+        if(costumer == null){
+            throw new BadEntityException("Empty costumer.");
+        } else if(costumer.getName() == null || costumer.getName().isEmpty()){
+            throw new BadEntityException("Name costumer required.");
+        } else if(!this.addressesService.validAddress(costumer.getMainAddress())){
+            throw new BadEntityException("Main address costumer required.");
+        }
+        return true;
     }
 }
