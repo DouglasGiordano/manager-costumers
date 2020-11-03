@@ -10,10 +10,38 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
     // https://mvnrepository.com/artifact/com.sparkjava/spark-core
     compile group: 'com.sparkjava', name: 'spark-core', version: '2.9.3'
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    compile group: 'com.google.inject', name: 'guice', version: '4.2.3'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+    // https://mvnrepository.com/artifact/org.jdbi/jdbi3-bom
+    compile group: 'org.jdbi', name: 'jdbi3-bom', version: '3.17.0', ext: 'pom'
+    // https://mvnrepository.com/artifact/org.jdbi/jdbi3-sqlobject
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.11.3'
+    // https://mvnrepository.com/artifact/org.antlr/stringtemplate
+    compile group: 'org.antlr', name: 'stringtemplate', version: '4.0.2'
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+    // https://mvnrepository.com/artifact/org.flywaydb/flyway-gradle-plugin
+    runtime group: 'org.flywaydb', name: 'flyway-gradle-plugin', version: '7.1.1'
+    // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '7.1.1'
+    testCompile "com.despegar:spark-test:1.1.8"
+    // https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-core
+    compile group: 'br.com.caelum.stella', name: 'caelum-stella-core', version: '2.1.2'
+    // https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-bean-validation
+    compile group: 'br.com.caelum.stella', name: 'caelum-stella-bean-validation', version: '2.1.2'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.6.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    compile group: 'org.hibernate', name: 'hibernate-validator-annotation-processor', version: '6.1.6.Final'
 }
