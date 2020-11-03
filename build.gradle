@@ -45,3 +45,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
     compile group: 'org.hibernate', name: 'hibernate-validator-annotation-processor', version: '6.1.6.Final'
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': "br.edu.compositebit.douglasgiordano.Application"
+    }
+}
