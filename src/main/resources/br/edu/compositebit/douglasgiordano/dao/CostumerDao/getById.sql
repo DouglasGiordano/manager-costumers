@@ -1,1 +1,0 @@
-SELECT * FROM costumer where id = :id;

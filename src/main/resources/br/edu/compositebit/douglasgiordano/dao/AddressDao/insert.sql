@@ -1,3 +1,3 @@
-insert into address (state, city, neighborhood, zipCode, street, number, additionalInformation, main, costumer)
+insert into address (state, city, neighborhood, zipCode, street, number, additionalInformation, main, customer, createdAt, updateAt)
 values (:state, :city, :neighborhood, :zipCode, :street,
-        :number, :additionalInformation, :main, :costumer)
+        :number, :additionalInformation, :main, :customer, :createdAt, :updateAt)

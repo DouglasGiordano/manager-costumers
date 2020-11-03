@@ -7,35 +7,48 @@ import lombok.extern.java.Log;
 
 import java.util.Map;
 
+
+/**
+ * @author Douglas Montanha Giordano
+ * Class responsible for mapping Customer Filters.
+ */
 @Log
 @NoArgsConstructor
 @Data
-public class CostumerFilter extends SuperFilter{
+public class CustomerFilter extends SuperFilter {
     private String name;
     private String birthDate;
     private EnumState state;
     private String city;
-    private EnumSortCostumer sortBy;
+    private EnumSortCustomer sortBy;
     private EnumSortOrder sortOrder;
 
-    public CostumerFilter(Map<String, String[]> params){
+    public CustomerFilter(Map<String, String[]> params) {
         this.name = this.getObjectParam(params.get("name"));
         this.birthDate = this.getObjectParam(params.get("birthDate"));
         this.state = this.getEnumParam(EnumState.class, params.get("state"));
         this.city = this.getObjectParam(params.get("city"));
-        this.sortBy = this.getEnumParam(EnumSortCostumer.class, params.get("sortBy"));
+        this.sortBy = this.getEnumParam(EnumSortCustomer.class, params.get("sortBy"));
         this.sortOrder = this.getEnumParam(EnumSortOrder.class, params.get("sortOrder"));
     }
 
-    public String getSort(){
-        if(this.sortBy == null){
-            this.sortBy = EnumSortCostumer.CUSTOMER_NAME;
+    /**
+     * Sort format for SQL query.
+     * @return sort sql
+     */
+    public String getSort() {
+        if (this.sortBy == null) {
+            this.sortBy = EnumSortCustomer.CUSTOMER_NAME;
         }
-        return sortBy.name().replaceFirst("_", ".").replace("_"," ");
+        return sortBy.name().replaceFirst("_", ".").replace("_", " ");
     }
 
-    public String getSortOrder(){
-        if(this.sortOrder == null){
+    /**
+     * Order format for SQL query.
+     * @return order sql
+     */
+    public String getSortOrder() {
+        if (this.sortOrder == null) {
             this.sortOrder = EnumSortOrder.ASC;
         }
         return sortOrder.name();

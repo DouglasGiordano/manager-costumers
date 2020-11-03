@@ -3,7 +3,7 @@ package br.edu.compositebit.douglasgiordano.controller;
 import br.edu.compositebit.douglasgiordano.Application;
 import br.edu.compositebit.douglasgiordano.dao.AddressDao;
 import br.edu.compositebit.douglasgiordano.dao.ConfigDao;
-import br.edu.compositebit.douglasgiordano.dao.CostumerDao;
+import br.edu.compositebit.douglasgiordano.dao.CustomerDao;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -13,12 +13,20 @@ import com.google.inject.Singleton;
 
 import java.sql.SQLException;
 
+/**
+ * @author Douglas Montanha Giordano
+ * Class responsible for configuring dependency injections using Google Guice.
+ */
 public class GuiceModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(Application.class).in(Singleton.class);
     }
 
+    /**
+     * Configure Object Mapper injection
+     * @return ObjectMapper
+     */
     @Provides
     @Singleton
     private ObjectMapper provideObjectMapper() {
@@ -28,19 +36,32 @@ public class GuiceModule extends AbstractModule {
         return objectMapper;
     }
 
+    /**
+     * Configure JDBI injection
+     * @return JDBI Config
+     */
     @Provides
     @Singleton
     private ConfigDao provideJdbiConfig() throws SQLException {
         return new ConfigDao();
     }
 
+    /**
+     * Configure CustomerDao injection
+     * @return CustomerDao
+     */
     @Provides
     @Singleton
-    private CostumerDao provideCostumerDao() throws SQLException {
-        CostumerDao repo = this.provideJdbiConfig().getJdbi().open().attach(CostumerDao.class);
+    private CustomerDao provideCustomerDao() throws SQLException {
+        CustomerDao repo = this.provideJdbiConfig().getJdbi().open().attach(CustomerDao.class);
         return repo;
     }
 
+    /**
+     * Configure AddressDao injection
+     * Configure AddressDao injection
+     * @return AddressDao
+     */
     @Provides
     @Singleton
     private AddressDao provideAddressDao() throws SQLException {

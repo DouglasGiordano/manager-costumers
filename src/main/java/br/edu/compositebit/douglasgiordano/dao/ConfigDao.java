@@ -19,10 +19,10 @@ public class ConfigDao {
     private Jdbi jdbi;
     private String username = "root";
     private String password = "root";
-    private String database = "costumermanagerdbnew";
+    private String database = "customermanagerdbnovaa";
 
     public ConfigDao() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/"+database+"?useTimezone=true&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC";
         this.createDatabase();
         this.jdbi = Jdbi.create(url, username, password);
         this.jdbi.installPlugin(new SqlObjectPlugin());
@@ -32,8 +32,8 @@ public class ConfigDao {
 
     public void createDatabase() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/mysql?useTimezone=true&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(url,username, password);
-        String sql = "CREATE SCHEMA IF NOT EXISTS "+database+" DEFAULT CHARACTER SET utf8";
+        Connection connection = DriverManager.getConnection(url, username, password);
+        String sql = "CREATE SCHEMA IF NOT EXISTS " + database + " DEFAULT CHARACTER SET utf8";
 
         Statement statement = connection.createStatement();
         statement.executeUpdate(sql);

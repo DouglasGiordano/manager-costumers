@@ -1,7 +1,7 @@
 package br.edu.compositebit.douglasgiordano;
 
 import br.edu.compositebit.douglasgiordano.controller.AddressController;
-import br.edu.compositebit.douglasgiordano.controller.CostumerController;
+import br.edu.compositebit.douglasgiordano.controller.CustomerController;
 import br.edu.compositebit.douglasgiordano.controller.GuiceModule;
 import br.edu.compositebit.douglasgiordano.model.entities.exception.ApiError;
 import br.edu.compositebit.douglasgiordano.model.entities.exception.EntityNotFoundException;
@@ -14,13 +14,14 @@ import org.eclipse.jetty.http.HttpStatus;
 
 import java.util.logging.Level;
 
-import static spark.Spark.*;
+import static spark.Spark.exception;
+import static spark.Spark.port;
 
 @Log
 public class Application {
 
     @Inject
-    private CostumerController costumerController;
+    private CustomerController customerController;
 
     @Inject
     private AddressController addressController;
@@ -28,14 +29,20 @@ public class Application {
     @Inject
     private ObjectMapper objectMapper;
 
+    public static void main(final String... args) {
+        Guice.createInjector(new GuiceModule())
+                .getInstance(Application.class)
+                .run(8080);
+    }
+
     public void run(final int port) {
         port(port);
-        this.costumerController.initApi();
+        this.customerController.initApi();
         this.addressController.initApi();
         this.initHandlerException();
     }
 
-    public void initHandlerException(){
+    public void initHandlerException() {
         exception(Exception.class, (e, req, res) -> {
             res.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
             res.type("application/json");
@@ -57,11 +64,5 @@ public class Application {
                 res.body(e.getMessage());
             }
         });
-    }
-
-    public static void main(final String... args) {
-        Guice.createInjector(new GuiceModule())
-                .getInstance(Application.class)
-                .run(8080);
     }
 }

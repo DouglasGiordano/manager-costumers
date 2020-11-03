@@ -1,1 +1,0 @@
-SELECT * FROM address where id = :idAddress and costumer = :idCostumer;

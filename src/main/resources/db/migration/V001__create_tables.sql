@@ -1,8 +1,8 @@
 
 -- -----------------------------------------------------
--- Table costumer
+-- Table customer
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS costumer
+CREATE TABLE IF NOT EXISTS customer
 (
     `id`        INT         NOT NULL AUTO_INCREMENT,
     `name`      VARCHAR(45) NOT NULL,
@@ -28,12 +28,12 @@ CREATE TABLE IF NOT EXISTS address
     `number`                VARCHAR(45) NULL,
     `additionalInformation` VARCHAR(45) NULL,
     `main`                  TINYINT     NULL,
-    `costumer`              INT         NULL,
+    `customer`              INT         NULL,
     PRIMARY KEY (`id`),
-    INDEX `fk_costumer_address_idx` (`costumer` ASC) VISIBLE,
+    INDEX `fk_costumer_address_idx` (`customer` ASC) VISIBLE,
     CONSTRAINT `fk_costumer_address`
-        FOREIGN KEY (`costumer`)
-            REFERENCES costumer (`id`)
+        FOREIGN KEY (`customer`)
+            REFERENCES customer (`id`)
             ON DELETE CASCADE
             ON UPDATE NO ACTION
 );

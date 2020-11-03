@@ -37,9 +37,9 @@ dependencies {
     compile group: 'org.flywaydb', name: 'flyway-core', version: '7.1.1'
     testCompile "com.despegar:spark-test:1.1.8"
     // https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-core
-    compile group: 'br.com.caelum.stella', name: 'caelum-stella-core', version: '2.1.4'
+    compile group: 'br.com.caelum.stella', name: 'caelum-stella-core', version: '2.1.2'
     // https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-bean-validation
-    compile group: 'br.com.caelum.stella', name: 'caelum-stella-bean-validation', version: '2.1.4'
+    compile group: 'br.com.caelum.stella', name: 'caelum-stella-bean-validation', version: '2.1.2'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
     compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.6.Final'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator

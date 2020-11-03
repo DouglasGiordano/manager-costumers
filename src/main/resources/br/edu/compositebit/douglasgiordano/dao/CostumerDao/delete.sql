@@ -1,1 +1,0 @@
-DELETE FROM costumer WHERE id = :id;

@@ -1,7 +1,7 @@
 package br.edu.compositebit.douglasgiordano.model.entities.exception;
 
 public class BadParameterException extends Exception {
-    public BadParameterException(){
+    public BadParameterException() {
         super("No entities found.");
     }
 

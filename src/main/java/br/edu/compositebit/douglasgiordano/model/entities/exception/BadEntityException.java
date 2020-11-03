@@ -1,7 +1,7 @@
 package br.edu.compositebit.douglasgiordano.model.entities.exception;
 
 public class BadEntityException extends Exception {
-    public BadEntityException(){
+    public BadEntityException() {
         super("No entities found.");
     }
 
